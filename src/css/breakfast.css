@@ -1,0 +1,153 @@
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    background-color: #f1ebd9;
+    color: #01090b;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #cdf2e5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin:20px auto;
+    width: 92%;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1ebd9;
+    color: #060000;
+    border-top: 2px solid #cdf2e5;
+}
+
+.receta-detaj {
+    padding: 30px;
+    background-color: #f9f9f8;
+    margin: 0 auto;
+    width: 87%;
+    box-shadow: 0 6px 12px rgba(6, 6, 6, 0.2);
+    border: 5px solid #f7c96c;
+    border-radius: 10px;
+}
+
+
+.foto-komenti {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; 
+}
+
+
+.foto {
+    flex: 0 0 45%; 
+    height: 500px; 
+    overflow: hidden; 
+}
+
+.receta-foto {
+    width: 90%; 
+    height: 100%; 
+    object-fit:cover; 
+}
+
+
+.receta-komenti {
+    margin-left: 20px; 
+    width: 55%; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 8px;
+    border: 2px solid #f7c96c;
+    border-radius: 8px; 
+    text-align: left; 
+    margin-top: 300px; 
+}
+
+.nutrition-table {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    width: 50%;
+    margin-top: 10px;
+    background-color: #fff8e1;
+}
+
+.nutrition-table h3 {
+    margin-top: 0;
+    color:#333
+}
+
+.nutrition-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.nutrition-table th, .nutrition-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.nutrition-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.daily-value {
+    text-align: right;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: inline-flex;
+    justify-content: left;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+    color: #f7c96c;
+}
+
+
+#ingredients, #instructions, #importantinformation, #nutritions, #tips {
+    margin-top: 20px;
+}
+
+#ingredients h2, #instructions h2, #importantinformation h2, #nutritions h2, #tips h2 {
+    color: #000301;
+    border-bottom: 2px solid #eafcf7;
+    padding-bottom: 5px;
+}
+
+
+ul, ol {
+    padding-left: 20px;
+}
+
+
+ul li, ol li {
+    margin-bottom: 10px;
+}
