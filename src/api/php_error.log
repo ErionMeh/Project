@@ -1,0 +1,32 @@
+[08-Jan-2025 15:00:22 Europe/Berlin] Request received
+[08-Jan-2025 15:00:22 Europe/Berlin] Raw input: {
+    "paymentMethod": "credit_card",
+    "cardNumber": "1234567812345678",
+    "cvv": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2025",
+    "email": "test@example.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "90210"
+}
+
+[08-Jan-2025 15:00:39 Europe/Berlin] Request received
+[08-Jan-2025 15:00:39 Europe/Berlin] Raw input: {
+    "paymentMethod": "credit_card",
+    "cardNumber": "1234567812345678",
+    "cvv": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2025",
+    "email": "test@example.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "90210"
+}
+

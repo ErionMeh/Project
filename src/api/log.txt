@@ -1,0 +1,33 @@
+Raw Input: {
+    "paymentMethod": "credit_card",
+    "cardNumber": "1234567812345678",
+    "cvv": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2025",
+    "email": "test@example.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "90210"
+}
+
+Validated Data: {"paymentMethod":"credit_card","cardNumber":"1234567812345678","cvv":"123","expiryMonth":"12","expiryYear":"2025","email":"test@example.com","firstName":"John","lastName":"Doe","address1":"123 Main St","city":"Anytown","state":"CA","zipCode":"90210"}
+Error: Error processing payment: MySQL server has gone away
+Raw Input: {
+    "paymentMethod": "credit_card",
+    "cardNumber": "1234567812345678",
+    "cvv": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2025",
+    "email": "test@example.com",
+    "firstName": "John",
+    "lastName": "Doe",
+    "address1": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "90210"
+}
+
+Validated Data: {"paymentMethod":"credit_card","cardNumber":"1234567812345678","cvv":"123","expiryMonth":"12","expiryYear":"2025","email":"test@example.com","firstName":"John","lastName":"Doe","address1":"123 Main St","city":"Anytown","state":"CA","zipCode":"90210"}
