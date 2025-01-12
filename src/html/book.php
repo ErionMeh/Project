@@ -1,0 +1,115 @@
+<?php
+include_once("config.php");
+require_once 'page_template.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/navbar.css">
+    
+ 
+    <link rel="stylesheet" href="../css/paymentForm.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="login.js"></script>
+    <title>Book Store</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+      }
+      .container {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background: #fffbf0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+      img {
+        width: 200px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      h1 {
+        font-size: 24px;
+        color: #333;
+      }
+      p {
+        color: #666;
+        margin-bottom: 20px;
+      }
+      .price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #28a745;
+      }
+      .buy-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(45deg, #ff7a00, #e06600); /* Gradient nga portokalli në të kuqe */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.buy-btn:hover {
+    background: linear-gradient(45deg, #e06600, #ff7a00); /* Efekti i gradientit në hover */
+}
+
+        .highlight {
+            background-color: whitesmoke;
+            font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    
+
+    <div id="navbar-placeholder"></div>
+    <div class="main-content">    <div class="container">
+      <img src="../../assets/images/cookbook.jpg" alt="Book Cover" />
+      <h1 style="h1 {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    ">Our Special Recipe Book</h1>
+      <p>
+        Discover a world of flavor with <mark><i>The Basic Cook Book Guide!</i></mark> Packed with
+        classic recipes, easy-to-follow instructions, and tips for every level
+        of home cook, this book will help you create delicious meals that bring
+        joy to your table. From quick weeknight dinners to impressive dishes for
+        special occasions, you'll find everything you need to elevate your
+        cooking game. <br><br>
+ <b>       Healthy, simple, and inspiring—cooking made fun for
+  everyone!</b>
+      </p>
+      <p class="price"><span class="highlight">$19.99</span></p>
+      <button class="buy-btn" id="buyNow">Buy Now</button>
+    </div></div>
+  
+
+    <script src="navbar.php"></script>
+    <script>
+      document.getElementById("buyNow").addEventListener("click", function () {
+        window.location.href = "paymentForm.php";
+      });
+    </script>
+  </body>
+</html>

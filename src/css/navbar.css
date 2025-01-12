@@ -1,9 +1,11 @@
 
-
 body {
     margin: 0;
     padding: 0;
-    padding-top: 80px;
+}
+
+.main-content {
+    margin-top: 80px;
 }
 
 #navbar-placeholder {

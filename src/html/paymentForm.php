@@ -1,0 +1,171 @@
+<?php 
+include_once("config.php");
+require_once 'page_template.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Form</title>
+    <link rel="stylesheet" href="../css/paymentForm.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <link rel="stylesheet" href="../css/navbar.css">
+  </head>
+  <header>
+    <div id="navbar-placeholder"></div>
+  </header>
+  <body>
+    <div class="main-content">  <div class="wrapper">
+      <div class="form-container payment-form">
+        <form id="paymentForm"  action="../api/process_payment.php" method="post">
+          <h1>Payment Information</h1>
+
+          <h3>Payment Method</h3>
+          <div class="payment-methods">
+            <div class="radio-group">
+              <input type="radio" id="credit" name="paymentMethod" value="credit" required checked>
+              <label for="credit">Credit Card</label>
+              
+              <input type="radio" id="debit" name="paymentMethod" value="debit">
+              <label for="debit">Debit Card</label>
+            </div>
+          </div>
+
+          <h3>Card Information</h3>
+          <div class="input-box">
+            <input type="text" id="card-number" placeholder="Card Number" required />
+            <i class="bx bxs-credit-card"></i>
+          </div>
+          <div class="input-box">
+            <input type="text" id="cvv" placeholder="CVV" required />
+            <i class="bx bxs-lock"></i>
+          </div>
+          <div class="input-box">
+            <input type="text" list="months" id="expiry-month" placeholder="Expiry Month" required>
+            <datalist id="months">
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </datalist>
+            <input type="text" list="years" id="expiry-year" placeholder="Expiry Year" required>
+            <datalist id="years">
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
+              <option value="2028">2028</option>
+              <option value="2029">2029</option>
+              <option value="2030">2030</option>
+            </datalist>
+          </div>
+
+          <h3>Billing Information</h3>
+          <div class="input-box">
+            <input type="email" id="email" list="common-emails" placeholder="Email Address" required />
+            <datalist id="common-emails">
+              <option value="@gmail.com">
+              <option value="@yahoo.com">
+              <option value="@hotmail.com">
+              <option value="@outlook.com">
+            </datalist>
+            <i class="bx bxs-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input type="text" id="first-name" placeholder="First Name" required />
+            <input type="text" id="last-name" placeholder="Last Name" required />
+          </div>
+          <div class="input-box">
+            <input type="text" id="address1" list="common-addresses" placeholder="Address 1" required />
+            <datalist id="common-addresses">
+              <option value="Apartment">
+              <option value="Suite">
+              <option value="Floor">
+              <option value="Unit">
+            </datalist>
+          </div>
+          <div class="input-box">
+            <input type="text" id="address2" placeholder="Address 2" />
+          </div>
+          <div class="input-box">
+            <input type="text" id="city" list="cities" placeholder="City" required />
+            <datalist id="cities">
+              <option value="Pristina">
+              <option value="Prizren">
+              <option value="Tirana">
+              <option value="Durres">
+            </datalist>
+            <select id="state" required>
+              <option value="" disabled selected>Select State</option>
+              <option value="01">Kosovo</option>
+              <option value="02">Albania</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <input type="text" id="zip-code" placeholder="Zip Code" required />
+          </div>
+
+          <h3>Order Summary</h3>
+          <div class="order-summary">
+            <p>Subtotal: $<output name="subtotal">19.99</output></p>
+            <p>Tax (18%): $<output name="tax">3.43</output></p>
+            <p>Total: $<output name="total">22.42</output></p>
+          </div>
+
+          <h3>Preferences</h3>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="saveInfo" name="saveInfo">
+              <label for="saveInfo">Save my information for future purchases</label>
+            </div>
+            
+            <div class="checkbox-item">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">Subscribe to our newsletter</label>
+            </div>
+            
+            <div class="checkbox-item">
+              <input type="checkbox" id="promotions" name="promotions">
+              <label for="promotions">Receive special offers and promotions</label>
+            </div>
+          </div>
+
+          <div class="terms-group" style="background: transparent;">
+            <div class="checkbox-item">
+              <input type="checkbox" id="terms" name="terms" required>
+              <label for="terms">I agree to the Terms and Conditions</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="privacy" name="privacy" required>
+              <label for="privacy">I agree to the Privacy Policy</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Complete Payment</button>
+        </form>
+      </div>
+    </div></div>
+  
+
+    <script src="../js/paymentForm.js"></script>
+    <script src="navbar.php"></script>
+  </body>
+</html>
