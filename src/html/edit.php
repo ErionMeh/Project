@@ -1,7 +1,7 @@
 <?php
-include_once("config.php"); // Use existing config with session_start()
+include_once("config.php"); 
 
-// Check if user is logged in
+
 if (!isset($_SESSION['username'])) {
     $_SESSION['redirect_url'] = 'edit.php';
     header("Location: login.php");
@@ -9,22 +9,22 @@ if (!isset($_SESSION['username'])) {
 }
 
 try {
-    // Get current user's details
+    
     $stmt = $conn->prepare("SELECT id FROM users WHERE username = :username");
     $stmt->bindParam(':username', $_SESSION['username']);
     $stmt->execute();
     $userData = $stmt->fetch();
     
-    // Determine which ID to use
+    
     if (isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
-        // Admin can edit other users if ID is provided
+        
         $id =$userData['id'];
     } else {
-        // Regular users can only edit their own profile
+        
         $id = $userData['id'];
     }
 
-    // Get user data for editing
+    
     $sql = "SELECT * FROM users WHERE id = :id";
     $prep = $conn->prepare($sql);
     $prep->bindParam(':id', $id);
