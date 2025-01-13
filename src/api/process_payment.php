@@ -1,137 +1,124 @@
 <?php
+// Set error reporting for debugging
 error_reporting(E_ALL);
+ini_set('display_errors', 0);
 ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
-header("Content-Type: application/json");
+// Set headers
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
+// Log incoming request
+$debug = true;  // Set to false in production
+if ($debug) {
+    error_log("Received request method: " . $_SERVER['REQUEST_METHOD']);
+}
+
+// Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
-require_once __DIR__ . '/../config/config.php';
+try {
+    // Only accept POST requests
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        throw new Exception('Only POST method is allowed');
+    }
 
-function encryptData($data, $key = 'your-secret-key') {
-    $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
-    $encrypted = openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv);
-    if ($encrypted === false) {
-        throw new Exception("Data encryption failed");
+    // Get JSON input
+    $jsonInput = file_get_contents('php://input');
+    if ($debug) {
+        error_log("Received input: " . $jsonInput);
     }
-    return base64_encode($iv . $encrypted);
-}
 
-function validateInput($data) {
-    $errors = [];
-    
-    if (!isset($data->cardNumber) || !preg_match('/^\d{16}$/', $data->cardNumber)) {
-        $errors[] = "Invalid card number";
-    }
-    
-    if (!isset($data->cvv) || !preg_match('/^\d{3,4}$/', $data->cvv)) {
-        $errors[] = "Invalid CVV";
-    }
-    
-    if (!isset($data->email) || !filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email";
-    }
-    
-    if (!isset($data->firstName) || strlen($data->firstName) < 2) {
-        $errors[] = "First name is required";
-    }
-    
-    if (!isset($data->lastName) || strlen($data->lastName) < 2) {
-        $errors[] = "Last name is required";
-    }
-    
-    return $errors;
-}
+    $data = json_decode($jsonInput, true);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        $rawInput = file_get_contents('php://input');
-        error_log('Raw input: ' . $rawInput); // Debug log
-        
-        $data = json_decode($rawInput);
-        
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception('Invalid JSON data: ' . json_last_error_msg());
-        }
-        
-        $errors = validateInput($data);
-        if (!empty($errors)) {
-            throw new Exception(implode(", ", $errors));
-        }
-        
-        $conn = getDBConnection();
-        
-        $encryptionKey = ' 6020c6d2b43620a0661430500392d2d72d77affa5519ff1106a8b7742ed12233';
-        $encryptedCard = encryptData($data->cardNumber, $encryptionKey);
-        $encryptedCVV = encryptData($data->cvv, $encryptionKey);
-        
-        $stmt = $conn->prepare("INSERT INTO payments (
-            payment_method, card_number, cvv, expiry_month, expiry_year,
-            email, first_name, last_name, address1, address2,
-            city, state, zip_code, save_info, newsletter, promotions
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        
-        if (!$stmt) {
-            throw new Exception("Prepare failed: " . $conn->error);
-        }
-        
-        $saveInfo = isset($data->saveInfo) ? ($data->saveInfo ? 1 : 0) : 0;
-        $newsletter = isset($data->newsletter) ? ($data->newsletter ? 1 : 0) : 0;
-        $promotions = isset($data->promotions) ? ($data->promotions ? 1 : 0) : 0;
-        
-        $stmt->bind_param(
-            "ssssssssssssssss",
-            $data->paymentMethod,
-            $encryptedCard,
-            $encryptedCVV,
-            $data->expiryMonth,
-            $data->expiryYear,
-            $data->email,
-            $data->firstName,
-            $data->lastName,
-            $data->address1,
-            $data->address2,
-            $data->city,
-            $data->state,
-            $data->zipCode,
-            $saveInfo,
-            $newsletter,
-            $promotions
-        );
-        
-        // Execute statement
-        if (!$stmt->execute()) {
-            throw new Exception("Execute failed: " . $stmt->error);
-        }
-        
-        // Close statement and connection
-        $stmt->close();
-        $conn->close();
-        
-        // Success response
-        echo json_encode([
-            'success' => true,
-            'message' => "Payment processed successfully"
-        ]);
-        
-    } catch (Exception $e) {
-        http_response_code(400);
-        echo json_encode([
-            'success' => false,
-            'message' => $e->getMessage()
-        ]);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        throw new Exception('Invalid JSON data provided: ' . json_last_error_msg());
     }
-} else {
-    http_response_code(405);
-    echo json_encode([
+
+    // Validate required fields
+    $requiredFields = [
+        'paymentMethod',
+        'cardNumber',
+        'cvv',
+        'expiryMonth',
+        'expiryYear',
+        'email',
+        'firstName',
+        'lastName',
+        'address1',
+        'city',
+        'state',
+        'zipCode',
+        'terms',
+        'privacy'
+    ];
+
+    foreach ($requiredFields as $field) {
+        if (!isset($data[$field]) || ($data[$field] === '' && $field !== 'address2')) {
+            throw new Exception("Missing required field: $field");
+        }
+    }
+
+    // Validate terms and privacy acceptance
+    if (!$data['terms'] || !$data['privacy']) {
+        throw new Exception("You must accept the Terms and Privacy Policy");
+    }
+
+    // Basic validation
+    if (strlen(preg_replace('/\D/', '', $data['cardNumber'])) !== 16) {
+        throw new Exception('Invalid card number length');
+    }
+
+    if (strlen($data['cvv']) < 3 || strlen($data['cvv']) > 4) {
+        throw new Exception('Invalid CVV');
+    }
+
+    if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        throw new Exception('Invalid email format');
+    }
+
+    // Validate expiry date
+    $currentYear = (int)date('Y');
+    $currentMonth = (int)date('m');
+    
+    if ((int)$data['expiryYear'] < $currentYear || 
+        ((int)$data['expiryYear'] == $currentYear && (int)$data['expiryMonth'] < $currentMonth)) {
+        throw new Exception('Card has expired');
+    }
+
+    // Success response
+    $response = [
+        'success' => true,
+        'message' => 'Payment processed successfully',
+        'transactionId' => uniqid('TRANS_'),
+        'timestamp' => date('Y-m-d H:i:s')
+    ];
+
+    if ($debug) {
+        error_log("Sending response: " . json_encode($response));
+    }
+
+    echo json_encode($response);
+    exit;
+
+} catch (Exception $e) {
+    $errorResponse = [
         'success' => false,
-        'message' => "Method not allowed"
-    ]);
+        'message' => $e->getMessage()
+    ];
+
+    if ($debug) {
+        error_log("Error occurred: " . $e->getMessage());
+    }
+
+    http_response_code(400);
+    echo json_encode($errorResponse);
+    exit;
 }
 ?>

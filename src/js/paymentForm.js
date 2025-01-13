@@ -28,7 +28,7 @@ document.getElementById("paymentForm").addEventListener("submit", function (e) {
       console.log('Sending data:', formData); // Debug log
 
       
-      fetch("http://localhost/fullstack/Project/src/api/process_payment.php", {
+      fetch("../api/process_payment.php", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ document.getElementById("paymentForm").addEventListener("submit", function (e) {
           console.log('Response data:', data); // Debug log
           if (data.success) {
               alert(data.message);
-              window.location.href = "../html/home.html"; // Redirect on success
+              window.location.href = "../html/home.php"; // Redirect on success
           } else {
               throw new Error(data.message);
           }

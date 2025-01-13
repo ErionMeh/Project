@@ -559,7 +559,7 @@ textarea:focus {
         </div>
         <div class="aboutus3">
             <div class="aboutus2">
-                <a id="linku1" href="../html/home.html">HOME COOKING <i id="right" class='bx bx-chevron-right'></i></a>
+                <a id="linku1" href="../html/home.php">HOME COOKING <i id="right" class='bx bx-chevron-right'></i></a>
                 <p id="teksti1">ABOUT US</p>
             </div>
             <p id="tekst2"><b>About Us</b></p>

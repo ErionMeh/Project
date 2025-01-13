@@ -47,56 +47,56 @@ require_once 'page_template.php';
         <div class="food-container">
 
             <!-- Breakfast -->
-             <a href="breakfast.html#pancake">
+             <a href="breakfast.php#pancake">
             <div class="food-item breakfast">
                 <img src="../../assets/images/oatmeal-pancakes.jpg" alt="Pancakes">
                 <h3>Pancakes</h3>
                 <p>Fluffy pancakes served with syrup and fresh fruits.</p>
             </div></a>
 
-          <a href="breakfast.html#omlete">
+          <a href="breakfast.php#omlete">
             <div class="food-item breakfast">
                 <img src="../../assets/images/omelette.webp" alt="Omelette">
                 <h3>Omelette</h3>
                 <p>Omelette with cheese, mushrooms, and spinach.</p>
             </div>
 
-            <a href="breakfast.html#croissant">
+            <a href="breakfast.php#croissant">
             <div class="food-item breakfast">
                 <img src="../../assets/images/Croissant.webp" alt="Croissant">
                 <h3>Croissants</h3>
                 <p>Crispy croissants filled with butter and chocolate.</p>
             </div></a>
 
-            <a href="breakfast.html#cinnamonrolls">
+            <a href="breakfast.php#cinnamonrolls">
             <div class="food-item breakfast">
                 <img src="../../assets/images/Cinnamon-rolls.webp" alt="Croissants">
                 <h3>Cinnamon Rolls</h3>
                 <p>Easy to make but wonderful and very sweet to wake up to!</p>
             </div></a>
 
-            <a href="breakfast.html#blueberryquinoa">
+            <a href="breakfast.php#blueberryquinoa">
             <div class="food-item breakfast">
                 <img src="../../assets/images/Quinoa.jpg" alt="French Toast">
                 <h3>Blueberry Quinoa</h3>
                 <p>Sweet blueberries and pair well in this blueberry lemon breakfast quinoa.</p>
             </div></a>
 
-            <a href="breakfast.html#greekyogurt">
+            <a href="breakfast.php#greekyogurt">
             <div class="food-item breakfast">
                 <img src="../../assets/images/berry-parfait.jpg" alt="Granola">
                 <h3>Greek Yogurt</h3>
                 <p>Greek yogurt parfaits are perfect for an easy grab-and-go.</p>
             </div></a>
 
-            <a href="breakfast.html#crispypotatoes">
+            <a href="breakfast.php#crispypotatoes">
             <div class="food-item breakfast">
                 <img src="../../assets/images/Potato.jpg" alt="Muffins">
                 <h3>Crispy Potatoes</h3>
                 <p>Super crispy thin crust without overcooking the interior of the potato.</p>
             </div></a>
  
-            <a href="breakfast.html#pumpkinsoup">
+            <a href="breakfast.php#pumpkinsoup">
             <div class="food-item breakfast">
                 <img src="../../assets/images/Pumpkin-Soup-1.jpg" alt="Smoothie">
                 <h3>Pumpkin Soup</h3>
@@ -105,56 +105,56 @@ require_once 'page_template.php';
             
 
             <!-- Lunch -->
-            <a href="lunch.html#chickencutlets">
+            <a href="lunch.php#chickencutlets">
             <div class="food-item lunch">
                 <img src="../../assets/images/crispy-caesar-chicken-cutlets-v0-v7w7qpwfr9yc1.webp" alt="Caesar Salad">
                 <h3>Caesar Chicken Cutlets</h3>
                 <p>Crispy lettuce with Caesar dressing, croutons, and parmesan cheese.</p>
             </div></a>
 
-            <a href="lunch.html#pizza">
+            <a href="lunch.php#pizza">
             <div class="food-item lunch">
                 <img src="../../assets/images/Pizza.jpg" alt="Grilled Chicken">
                 <h3>Pizza</h3>
                 <p>Pizza on the grill is a fantastic way to make pizza at home.</p>
             </div></a>
 
-            <a href="lunch.html#chickentenders">
+            <a href="lunch.php#chickentenders">
             <div class="food-item lunch">
                 <img src="../../assets/images/chickentenders.jpg" alt="Club Sandwich">
                 <h3> Mustard-Panko Chicken Tenders</h3>
                 <p>A homemade honey mustard sauce is served with these easy baked panko chicken tenders for a family-friendly dish that everyone will enjoy.</p>
             </div></a>
 
-            <a href="lunch.html#pastryshells">
+            <a href="lunch.php#pastryshells">
             <div class="food-item lunch">
                 <img src="../../assets/images/pastryshell.webp" alt="Club Sandwich">
                 <h3>Chicken Puff Pastry Shells</h3>
                 <p>Jimmy Dean sausage filling piled high on flaky puff pastry shells.</p>
             </div></a>
 
-            <a href="lunch.html#taameya">
+            <a href="lunch.php#taameya">
             <div class="food-item lunch">
                 <img src="../../assets/images/tameya.webp" alt="Club Sandwich">
                 <h3>Ta'ameya</h3>
                 <p>Ta'ameya (Egyptian falafel) is an all-time favorite street food in Egypt. In most parts of the Middle East, falafel is made with ground chickpeas.</p>
             </div></a>
 
-            <a href="lunch.html#rollbowl">
+            <a href="lunch.php#rollbowl">
                 <div class="food-item lunch">
                     <img src="../../assets/images/rollbowl.png" alt="Club Sandwich">
                     <h3>Spring Roll Bowl</h3>
                     <p>This delicious spring is the best.</p>
                 </div></a>
 
-                <a href="lunch.html#chickenwraps">
+                <a href="lunch.php#chickenwraps">
                     <div class="food-item lunch">
                         <img src="../../assets/images/Grilled-Chicken-Wrap.webp" alt="Club Sandwich">
                         <h3>Chicken Wraps</h3>
                         <p>These spicy have a creamy sauce made with mayo, honey, and cucumber to create an easy summer meal that will rock your taste buds!</p>
                     </div></a>
 
-                    <a href="lunch.html#tortellini">
+                    <a href="lunch.php#tortellini">
                         <div class="food-item lunch">
                             <img src="../../assets/images/tortellini.jpg" alt="Club Sandwich">
                             <h3>Tortellini Salad</h3>
@@ -163,7 +163,7 @@ require_once 'page_template.php';
             
 
             <!-- Dinner  -->
-            <a href="dinner.html#hamburger">
+            <a href="dinner.php#hamburger">
             <div class="food-item dinner">
                 <img src="../../assets/images/Hamburger.webp" alt="Steak">
                 <h3>Cheesy Hamburger Rice Casserole</h3>
@@ -171,35 +171,35 @@ require_once 'page_template.php';
             </div>
             </a>
  
-            <a href="dinner.html#pasta">
+            <a href="dinner.php#pasta">
             <div class="food-item dinner">
                 <img src="../../assets/images/pasta.jpg" alt="Steak">
                 <h3>Pasta Penne</h3>
                 <p>This recipe is quick and easy to make from scratch.</p>
             </div></a>
 
-            <a href="dinner.html#tacos">
+            <a href="dinner.php#tacos">
             <div class="food-item dinner">
                 <img src="../../assets/images/Grilled-Fish-Tacos-14-1.jpg" alt="Steak">
                 <h3>Grilled Fish Tacos</h3>
                 <p>These grilled fish tacos are made with marinated fish fillets.</p>
             </div></a>
               
-            <a href="dinner.html#turkeyriggies">
+            <a href="dinner.php#turkeyriggies">
             <div class="food-item dinner">
                 <img src="../../assets/images/riggies.jpg" alt="Steak">
                 <h3>Baked Turkey Riggies</h3>
                 <p>This Central New York dish is a perfect way to use up your Thanksgiving leftovers in a baked casser.</p>
             </div></a>
 
-            <a href="dinner.html#currychicken">
+            <a href="dinner.php#currychicken">
             <div class="food-item dinner">
                 <img src="../../assets/images/currychicken.jpg" alt="Steak">
                 <h3>Curry Chicken</h3>
                 <p>It's rich and hearty, with flavor that's great when you can't get the real thing in the islands.</p>
             </div></a>
             
-            <a href="dinner.html#shrimp">
+            <a href="dinner.php#shrimp">
             <div class="food-item dinner">
                 <img src="../../assets/images/shrimps.jpg" alt="Steak">
                 <h3>Spicy Jerk Shrimp</h3>
@@ -209,35 +209,35 @@ require_once 'page_template.php';
             
 
             <!-- Desserts  -->
-            <a href="dessert.html#redvelvet">
+            <a href="dessert.php#redvelvet">
             <div class="food-item desserts">
                 <img  src="../../assets/images/redvelvet.avif" alt="Chocolate Cake">
                 <h3>Red Velvet Cake</h3>
                 <p>This cake is a must-try for special occasions!</p>
             </div></a>
 
-            <a href="dessert.html#bleberrycake">
+            <a href="dessert.php#bleberrycake">
             <div class="food-item desserts">
                 <img src="../../assets/images/Blueberry-Cake-recipe-n.jpg"  alt="Chocolate Cake">
                 <h3>Lemon Blueberry Layer Cake</h3>
                 <p>Sunshine-sweet lemon blueberry layer cake dotted with juicy berries and topped with lush cream cheese frosting.</p>
             </div></a>
 
-            <a href="dessert.html#cheesecake">
+            <a href="dessert.php#cheesecake">
             <div class="food-item desserts">
                 <img src="../../assets/images/Mini-Cheesecake-Recipe-10.jpg" alt="Chocolate Cake">
                 <h3>Mini Egg Cheesecake</h3>
                 <p>This mini cheesecake recipe creates bite-sized treats.</p>
             </div></a>
 
-            <a href="dessert.html#tiramisu">
+            <a href="dessert.php#tiramisu">
             <div class="food-item desserts">
                 <img src="../../assets/images/receta3.webp" alt="Chocolate Cake">
                 <h3>Dulce De Leche Tiramisu</h3>
                 <p>This dulce de leche tiramisu is mouthwatering.</p>
             </div></a>
 
-            <a href="dessert.html#brownie">
+            <a href="dessert.php#brownie">
             <div class="food-item desserts">
                 <img src="../../assets/images/blackforestbrownie18a.jpg"alt="Chocolate Cake">
                 <h3>Skillet Brownie</h3>
@@ -254,7 +254,6 @@ require_once 'page_template.php';
                     <a id="icon" href="https://www.pinterest.com/"><i class='bx bxl-pinterest' ></i></a>
                     <a id="icon" href="https://www.tiktok.com/explore"><i class='bx bxl-tiktok' ></i></a>
                     <a id="icon" href="https://www.instagram.com/"><i class='bx bxl-instagram' ></i></a>
-                    <a id="icon" href="https://x.com/"><i class='bx bxl-twitter' ></i></a>
                
             </div>
             <div class="logo">
